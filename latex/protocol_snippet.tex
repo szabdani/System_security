@@ -1,0 +1,37 @@
+ \documentclass{article} 
+ \usepackage{graphicx} 
+ \usepackage{tikz} 
+ \usepackage{amsmath} 
+ \usetikzlibrary{arrows.meta,matrix,shapes,arrows,positioning,chains, calc} 
+
+ % MACRO for whole diagram 
+ % #1: total width of diagram 
+ % #2: total height of diagram 
+ % #3: nodes, paths, ... 
+ \newcommand\protocolflow[3]{ 
+ \begin{center} 
+ \begin{tikzpicture}[x=#1cm,y=#2cm] 
+ #3 
+ \end{tikzpicture} 
+ \end{center} 
+ } 
+ 
+ % MACRO for path line shortening 
+ % #1: start coordinate 
+ % #2: target coordinate 
+ % #3: text above arrow 
+ \newcommand{\package}[3]{ 
+ \path[*-{latex[width=5pt, length=5pt]}] (#1) edge node [above] {#3} (#2); 
+ } 
+
+ \begin{document} 
+ \protocolflow{1.5}{0.75}{ 
+	 \node[] (A) at (0,0) {\textbf{Alice}}; 
+	 \node[] (S) at (5,0) {\textbf{Server}}; 
+	 \node[] (B) at (10,0) {\textbf{Bob}}; 
+	 \package{0,-1}{5,-1}{$ID_A, ID_B, N_A$} 
+	 \package{5,-2}{0,-2}{$\{ K_{AB}, ID_B, N_A, \{K_{AB}, ID_A\}_{K_{BS}}\}_{K_{AS}}$} \package{0,-3}{5,-3}{$\{ K_{AB}, ID_A \}_{K_{BS}}$} 
+	 \package{10,-4}{0,-4}{$\{ N_B \}_{K_{AB}}$} 
+	 \package{0,-5}{10,-5}{$\{ 2 * N_B + 5 \}_{K_{AB}}$} 
+ } 
+ \end{document}
