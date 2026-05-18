@@ -1,0 +1,38 @@
+ \documentclass{article} 
+ \usepackage{graphicx} 
+ \usepackage{tikz} 
+ \usepackage{amsmath} 
+ \usetikzlibrary{arrows.meta,matrix,shapes,arrows,positioning,chains, calc} 
+
+ % MACRO for whole diagram 
+ % #1: total width of diagram 
+ % #2: total height of diagram 
+ % #3: nodes, paths, ... 
+ \newcommand\protocolflow[3]{ 
+ \begin{center} 
+ \begin{tikzpicture}[x=#1cm,y=#2cm] 
+ #3 
+ \end{tikzpicture} 
+ \end{center} 
+ } 
+ 
+ % MACRO for path line shortening 
+ % #1: start coordinate 
+ % #2: target coordinate 
+ % #3: text above arrow 
+ \newcommand{\package}[3]{ 
+ \path[*-{latex[width=5pt, length=5pt]}] (#1) edge node [above] {#3} (#2); 
+ } 
+
+ \begin{document} 
+ \protocolflow{1.5}{0.75}{ 
+	 \node[] (A) at (0,0) {\textbf{Alice}};
+	 \node[] (E) at (2.5,0) {\textbf{Eve}};
+	 \node[] (S) at (5,0) {\textbf{Server}}; 
+	 \node[] (B) at (10,0) {\textbf{Bob}}; 
+	 \package{0,-1}{2.5,-1}{$ID_A, ID_B$} 
+	 \package{2.5,-2}{5,-2}{$ID_A, \textcolor{red}{ID_E}$}
+	 \package{5,-3}{0,-3}{$\{K_{AB}, \}_{K_{BS}}, \{K_{AB}, \}_{{\textcolor{red}{K_{ES}}}} $} 
+	 \package{0,-4}{2.5,-4}{$\{K_{AB}, \}_{{\textcolor{red}{K_{ES}}}}, ID_A$} 
+ } 
+ \end{document}
