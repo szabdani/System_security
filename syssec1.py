@@ -13,47 +13,47 @@ class Module:
     def execute(self, data):
         print(f"Incoming data: {data}")
 
-        ### Work with data here ###
-        # data_json = json.loads(data)
-        # data_json["content"] = "Blablabla"
-        # data = json.dumps(data_json)
-        # print(f"Outgoing data: {data}")
-        # return data + "\n"
-
-        #Using Reflection Attack as mentioned in the lecture
-        #Impersonating Bob and sending oblivious Alice her own replies
+        # Using Reflection Attack as mentioned in the lecture
+        # Impersonating Bob and sending Alice her own replies
 
         data_json = json.loads(data)
 
+        # Here we are making Alice encrypt her own nonce together with current session key, with only difference,
+        # that the message comes from Bo
+        # Reflect packet and change content to identify Bob with Alice's nonce
         if data_json["id"] == 1:
             original_sender, original_receiver = data_json["sender"], data_json["receiver"]
             data_json["sender"], data_json["receiver"] = original_receiver, original_sender
 
             nonce = str(data_json["content"])
 
-            #How to get last part of string
-            #https://stackoverflow.com/questions/16118379/get-characters-of-a-string-from-right
+            # How to get last part of string
+            # https://stackoverflow.com/questions/16118379/get-characters-of-a-string-from-right
 
             data_json["content"] = "Bob," + nonce[-10:]
             data = json.dumps(data_json) + '\n'
 
+        # Reflect packet - After this message Alice confirm's her own nonce, which she thinks Bob encrypted
         if data_json["id"] == 2:
             original_sender, original_receiver = data_json["sender"], data_json["receiver"]
             data_json["sender"], data_json["receiver"] = original_receiver, original_sender
             data = json.dumps(data_json) + '\n'
-
+            
+        # Reflect packet - Alice again checks that nonce is correct, this time as if she was Bob in the original relation
         if data_json["id"] == 3:
             original_sender, original_receiver = data_json["sender"], data_json["receiver"]
             data_json["sender"], data_json["receiver"] = original_receiver, original_sender
             data = json.dumps(data_json) + '\n'
 
+        # Reflect packet - completing and adding Bob's made up nonce
         if data_json["id"] == 4:
             original_sender, original_receiver = data_json["sender"], data_json["receiver"]
             data_json["sender"], data_json["receiver"] = original_receiver, original_sender
-            data_json["content"] = "1234567890" #Making our own nonce which does not matter, and establishing connection with Alice
+            data_json["content"] = "1234567890" # Making our own nonce which does not matter, and establishing connection with Alice
             data = json.dumps(data_json) + '\n'
 
-            # After mirroring last message and sending Alice her own non encrypted nonce, getting flag: n3v3r_tru5t_b0b
+            # After reflecting last packet and sending Alice her own non encrypted nonce, 
+            # getting flag: n3v3r_tru5t_b0b
 
 
         print(f"Outgoing data: {data}")
