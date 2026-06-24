@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.6.24)  24 JUN 2026 12:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.6.24)  24 JUN 2026 19:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -525,15 +525,7 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 \g__nicematrix_block_box_7_box=\box73
 \g__nicematrix_block_box_8_box=\box74
 \g__nicematrix_block_box_9_box=\box75
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 4
-8.
- (C:\Users\szdan\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
-File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 48.
-
-[1
+ [1
 
 {C:/Users/szdan/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 (stack_frame.aux)
@@ -543,10 +535,10 @@ L3 programming layer <2026-05-26>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 13870 strings out of 467509
- 315906 string characters out of 5408780
- 778657 words of memory out of 5000000
- 42956 multiletter control sequences out of 15000+600000
+ 13927 strings out of 467509
+ 317046 string characters out of 5408780
+ 787948 words of memory out of 5000000
+ 43016 multiletter control sequences out of 15000+600000
  630925 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,30n,93p,495b,856s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -556,7 +548,7 @@ onts/cm/cmr10.pfb><C:/Users/szdan/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/amsfonts/cm/cmr8.pfb><C:/Users/szdan/AppData/Local/Programs/MiKTeX/fonts/ty
 pe1/public/amsfonts/cm/cmsy8.pfb><C:/Users/szdan/AppData/Local/Programs/MiKTeX/
 fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on stack_frame.pdf (1 page, 50820 bytes).
+Output written on stack_frame.pdf (1 page, 56327 bytes).
 PDF statistics:
  34 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

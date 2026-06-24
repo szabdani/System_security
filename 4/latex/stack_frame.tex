@@ -17,13 +17,14 @@
  				& \Block[]{}{\textbf{Description} of\\memory area} & \Block[]{}{\textbf{Size} in Bytes} \\[.5cm]
  				\Block{2-1}{\rotate \texttt{0xFFFFFFFF}} & \Block{2-1}{\texttt{previous memory}} & \Block{2-1}{\texttt{-}} \\
  				& & \\
- 				& & \\
- 				& & \\
- 				\Block{6-1}{\rotate$\underleftarrow{\text{memory addresses}}$} & & \\
- 				& & \\
- 				& & \\
- 				& & \\
- 				& & \\
+ 				& Parameters - password & 4 \\
+ 				& Return Address & 4 \\
+ 				\Block{6-1}{\rotate$\underleftarrow{\text{memory addresses}}$}
+ 				& Stack frame pointer & 4 \\
+ 				& Local variables - auth\_flag & 4 \\
+ 				& password\_buffer[9-12]& 4 \\
+ 				& password\_buffer[5-8]& 4 \\
+ 				& password\_buffer[0-4]& 4 \\
  				& & \\
  				& & \\
  				\Block{2-1}{\rotate \texttt{0x00000000}} &\Block{2-1}{\texttt{free memory}} & \Block{2-1}{\texttt{-}} \\
@@ -33,7 +34,7 @@
  		\end{center}
  	\end{minipage}
  	\hfill
- 	\begin{minipage}{.45\textwidth}
+ 	\begin{minipage}{.4\textwidth}
  		\footnotesize
  		\begin{center}
  			\setlength{\extrarowheight}{5mm}
@@ -45,15 +46,15 @@
  				\Block{1-4}{\textbf{Stackframe} after attack} & & & \\[0.5cm]
  				\Block{2-4}{\texttt{previous memory}} & & & \\
  				& & & \\
- 				\exx & \exx & \exx & \exx \\
- 				\exx & \exx & \exx & \exx \\
- 				\exx & \exx & \exx & \exx \\
- 				\exx & \exx & \exx & \exx \\
- 				\exx & \exx & \exx & \exx \\
- 				\exx & \exx & \exx & \exx \\
- 				\exx & \exx & \exx & \exx \\
- 				\exx & \exx & \exx & \exx \\
- 				\exx & \exx & \exx & \exx \\
+ 				?? & ?? & ?? & ?? \\
+ 				?? & ?? & ?? & ?? \\
+ 				?? & ?? & ?? & ?? \\
+ 				0x00 & 0x00 & 0x00 & 0x01 \\
+ 				0xAA & 0xAA & 0xAA & 0xAA \\
+ 				0xAA & 0xAA & 0xAA & 0xAA \\
+ 				0xAA & 0xAA & 0xAA & 0xAA \\
+ 				?? & ?? & ?? & ?? \\
+ 				?? & ?? & ?? & ?? \\
  				\Block{2-4}{\texttt{free memory}} & & & \\
  				& & & \\
  				\Block{1-4}{\texttt{0x00000000} $\underrightarrow{\text{memory addresses}}$ \texttt{0x00000003}} & & & \\[0.5cm]
