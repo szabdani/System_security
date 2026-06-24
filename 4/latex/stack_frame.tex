@@ -1,0 +1,63 @@
+ \documentclass{article} 
+ \usepackage{nicematrix}
+
+ \newcommand{\exx}{\textcolor{gray!40}{\textbackslash X}}
+
+ \begin{document} 
+ 	\begin{minipage}{.45\textwidth}
+ 		\footnotesize
+ 		\begin{center}
+ 			\setlength{\extrarowheight}{5mm}
+ 			\begin{NiceTabular}{X[5]X[1]}[
+ 				hvlines,
+ 				first-row,
+ 				first-col,
+ 				last-row
+ 				]
+ 				& \Block[]{}{\textbf{Description} of\\memory area} & \Block[]{}{\textbf{Size} in Bytes} \\[.5cm]
+ 				\Block{2-1}{\rotate \texttt{0xFFFFFFFF}} & \Block{2-1}{\texttt{previous memory}} & \Block{2-1}{\texttt{-}} \\
+ 				& & \\
+ 				& & \\
+ 				& & \\
+ 				\Block{6-1}{\rotate$\underleftarrow{\text{memory addresses}}$} & & \\
+ 				& & \\
+ 				& & \\
+ 				& & \\
+ 				& & \\
+ 				& & \\
+ 				& & \\
+ 				\Block{2-1}{\rotate \texttt{0x00000000}} &\Block{2-1}{\texttt{free memory}} & \Block{2-1}{\texttt{-}} \\
+ 				& & \\
+ 				& & \\[0.5cm]
+ 			\end{NiceTabular}
+ 		\end{center}
+ 	\end{minipage}
+ 	\hfill
+ 	\begin{minipage}{.45\textwidth}
+ 		\footnotesize
+ 		\begin{center}
+ 			\setlength{\extrarowheight}{5mm}
+ 			\begin{NiceTabular}{*{4}{X[c]}}[
+ 				hvlines,
+ 				first-row,
+ 				last-row,
+ 				]
+ 				\Block{1-4}{\textbf{Stackframe} after attack} & & & \\[0.5cm]
+ 				\Block{2-4}{\texttt{previous memory}} & & & \\
+ 				& & & \\
+ 				\exx & \exx & \exx & \exx \\
+ 				\exx & \exx & \exx & \exx \\
+ 				\exx & \exx & \exx & \exx \\
+ 				\exx & \exx & \exx & \exx \\
+ 				\exx & \exx & \exx & \exx \\
+ 				\exx & \exx & \exx & \exx \\
+ 				\exx & \exx & \exx & \exx \\
+ 				\exx & \exx & \exx & \exx \\
+ 				\exx & \exx & \exx & \exx \\
+ 				\Block{2-4}{\texttt{free memory}} & & & \\
+ 				& & & \\
+ 				\Block{1-4}{\texttt{0x00000000} $\underrightarrow{\text{memory addresses}}$ \texttt{0x00000003}} & & & \\[0.5cm]
+ 			\end{NiceTabular}
+ 		\end{center}
+ 	\end{minipage}
+ \end{document}
